@@ -31,6 +31,8 @@ namespace EFCore3CSharp8
 
             using var applicationDbContext = host.Services.GetRequiredService<ApplicationDbContext>();
 
+            Seeder.Seed(applicationDbContext);
+
             var message = applicationDbContext.Foos.Where(s => s.Id == 123).FirstOrDefault();
             message = applicationDbContext.Foos.Where(s => s.Required == "123").FirstOrDefault();
             message = applicationDbContext.Foos.Where(s => s.Nullable == "123").FirstOrDefault();
